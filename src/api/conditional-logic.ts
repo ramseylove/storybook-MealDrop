@@ -17,7 +17,7 @@ const isMockedEnvironment = !!process.env.STORYBOOK || process.env.NODE_ENV === 
 const apiCache = new Map()
 
 const apiGet = async <T>(url: string): Promise<AxiosResponse<T>> => {
-  // do not cache when testing to avoid flakyness
+  // do not cache when testing to avoid flakiness
   if (!isMockedEnvironment && apiCache.has(url)) {
     return apiCache.get(url)
   }
